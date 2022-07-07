@@ -1,0 +1,41 @@
+model_params:
+  model_seed: 1234
+  name: 'xWyModel'
+  Vec_Len: 11
+  Len_prodFeature: 3
+  Len_customerFeature: 5
+
+data_params:
+  data_seed: 2341
+  data_path: "data/xWy_10_3ProdF_5CusF"
+  name: "xWy_10_3ProdF_5CusF"
+
+  train_amount: 2000
+
+  valid_amount: 200
+  
+  test_amount: 2000
+
+  device: "gpu"
+
+
+exp_params:
+  exp_seed: 1265
+
+  train_batch_size: 200
+  valid_batch_size: 200
+  LR: 0.001
+  weight_decay: 0.0
+  scheduler_gamma: 1
+
+  device: "gpu"
+  max_epochs: 300
+
+logging_params:
+
+  log_name: "xWy_10_xWyModel"
+
+  log_save_perEpoch: 20
+
+  log_save_stack: 2
+

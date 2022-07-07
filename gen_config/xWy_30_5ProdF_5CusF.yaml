@@ -1,0 +1,15 @@
+Seed: 1298
+
+Assortment:
+  scheme: "Abundant"
+  N_prod: 30
+
+TrueModel:
+  model: "xWy"
+  N_prod: 30
+  Len_prodFeature: 5
+  Len_customerFeature: 5
+
+DataSet:
+  name: "xWy_30_5ProdF_5CusF"
+  N_sample: 50000

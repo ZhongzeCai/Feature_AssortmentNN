@@ -1,0 +1,15 @@
+.vscode
+
+logs/*
+
+data/*
+
+! logs
+
+! data
+
+__pycache__
+
+.DS*
+
+.ipynb*
