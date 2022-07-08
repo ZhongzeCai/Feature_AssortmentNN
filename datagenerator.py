@@ -61,7 +61,7 @@ def GenDataset(config_path = "gen_config/xWy_10_3ProdF_5CusF.yaml"):
         assort = AssortmentGen(**AssortParams)
 
         # this part can be changed to other generating function
-        customer_feature = np.random.uniform(0, 1, Len_customerFeature)
+        customer_feature = np.random.normal(0, 1, Len_customerFeature)
 
         INPUT[i] = np.append(Product_1(assort), customer_feature) 
 

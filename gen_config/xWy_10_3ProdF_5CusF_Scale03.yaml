@@ -1,4 +1,4 @@
-Seed: 1278
+Seed: 1276
 
 Assortment:
   scheme: "Abundant"
@@ -9,8 +9,8 @@ TrueModel:
   N_prod: 10
   Len_prodFeature: 3
   Len_customerFeature: 5
-  W_scale: 1
+  W_scale: 0.3
 
 DataSet:
-  name: "xWy_10_3ProdF_5CusF"
+  name: "xWy_10_3ProdF_5CusF_Scale03"
   N_sample: 50000

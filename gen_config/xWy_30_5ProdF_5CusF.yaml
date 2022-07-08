@@ -9,6 +9,7 @@ TrueModel:
   N_prod: 30
   Len_prodFeature: 5
   Len_customerFeature: 5
+  W_scale: 1
 
 DataSet:
   name: "xWy_30_5ProdF_5CusF"

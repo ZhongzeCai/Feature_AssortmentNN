@@ -15,6 +15,8 @@ class GenTrueModel_xWy:
         Len_prodFeature = 3,
         Len_customerFeature = 5,
 
+        W_scale = 1,
+
         W = np.array([]),
 
         prodFeature_genFunc = lambda n : np.random.normal(0,1,n),
@@ -32,7 +34,9 @@ class GenTrueModel_xWy:
 
         if len(W) == 0:
 
-            W = np.random.randn(Len_prodFeature, Len_customerFeature)
+            self.W_scale = W_scale
+
+            W = np.random.normal(loc=0, scale=W_scale, size=(Len_prodFeature, Len_customerFeature))
 
         self.W = W
 

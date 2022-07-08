@@ -7,8 +7,8 @@ model_params:
 
 data_params:
   data_seed: 2341
-  data_path: "data/xWy_10_3ProdF_5CusF"
-  name: "xWy_10_3ProdF_5CusF"
+  data_path: "data/xWy_10_3ProdF_5CusF_Scale03"
+  name: "xWy_10_3ProdF_5CusF_Scale03"
 
   train_amount: 2000
 
@@ -29,11 +29,11 @@ exp_params:
   scheduler_gamma: 1
 
   device: "gpu"
-  max_epochs: 500
+  max_epochs: 300
 
 logging_params:
 
-  log_name: "xWy_10_xWyModel"
+  log_name: "xWy_10_S03_xWyModel"
 
   log_save_perEpoch: 20
 
