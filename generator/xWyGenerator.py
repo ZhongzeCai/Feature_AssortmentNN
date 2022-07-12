@@ -2,10 +2,11 @@
 
 import numpy as np
 from .AssortmentGenerator import Product_0, Product_1
+from .BaseGenerator import BaseGenerator
 import os
 
 
-class GenTrueModel_xWy:
+class GenTrueModel_xWy(BaseGenerator):
 
     def __init__(
 
@@ -25,12 +26,9 @@ class GenTrueModel_xWy:
 
     ):
 
+        super().__init__(N_prod, Len_prodFeature, Len_customerFeature)
+
         self.ModelName = "xWy"
-
-        self.N_prod = N_prod
-
-        self.Len_prodFeature = Len_prodFeature
-        self.Len_customerFeature = Len_customerFeature
 
         if len(W) == 0:
 

@@ -3,9 +3,7 @@ import numpy as np
 
 
 all_configs = [
-    'xWy_10_3ProdF_5CusF',
-    'xWy_10_3ProdF_5CusF_Scale03',
-    'xWy_10_3ProdF_5CusF_Scale5'
+    'Markov_10_3ProdF_5CusF'
 ]
 
 for config in all_configs:

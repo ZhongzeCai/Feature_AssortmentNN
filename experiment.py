@@ -42,6 +42,58 @@ def Relative_L1_loss(OUT, PROB, clamp_level = 10):
 
     return relative_diff
 
+# a modified version of L1 loss
+def Modified_L1_loss(OUT, PROB, clamp_level = 10, bar_level = 0.8, iter_times = 10):
+    OUT = OUT.detach()
+    PROB = PROB.detach()
+
+    if OUT.device != 'cpu':
+        OUT = OUT.cpu()
+
+    if PROB.device != 'cpu':
+        PROB = PROB.cpu()
+
+    OUT = OUT.numpy()
+    PROB = PROB.numpy()
+
+    loss = np.array([])
+    samp_amount = len(OUT)
+    
+    for samp in range(samp_amount):
+
+        ## bin search for a cut_level
+        OUT_toCheck = OUT[samp]
+        PROB_toCheck = PROB[samp]
+        up = 1
+        bottom = 0
+        for i in range(iter_times):
+
+            level = (up + bottom)/2
+            water_level = sum(PROB_toCheck[PROB_toCheck > level])
+            if water_level > bar_level:
+                bottom = level
+
+            else:
+                up = level
+
+        PROB_effect = PROB_toCheck[PROB_toCheck > level ]
+
+        OUT_effect = OUT_toCheck[PROB_toCheck > level]
+
+        relative_diff = np.abs(OUT_effect - PROB_effect) / PROB_effect
+
+        relative_diff[relative_diff > clamp_level] = clamp_level
+
+
+        loss = np.append(loss, relative_diff)
+
+
+    return loss
+
+
+
+
+
 
 
 

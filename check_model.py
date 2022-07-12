@@ -1,5 +1,5 @@
 ## a series of functions for testing the model
-from experiment import KL_loss, Relative_L1_loss
+from experiment import KL_loss, Relative_L1_loss, Modified_L1_loss
 import yaml
 from models import ModelCollection
 from dataset import GrepDataset
@@ -71,7 +71,7 @@ def model_behavior_check(training_yaml_path, model_name, model_path=""):
     Silly_OUT = silly_model(IN)
     print(KL_loss(Silly_OUT, PROB))
 
-def L1_loss_check(training_yaml_path, model_name, model_path = "", clamp_level=10):
+def L1_loss_check(training_yaml_path, model_name, model_path = "", clamp_level=10, bar_level = 0.8):
 
     with open(training_yaml_path, 'r') as file:
         params = yaml.safe_load(file)
@@ -85,7 +85,8 @@ def L1_loss_check(training_yaml_path, model_name, model_path = "", clamp_level=1
 
     (IN, SAMP, PROB) = testing_dataset[:]
 
-    relative_diff = Relative_L1_loss(model(IN), PROB, clamp_level)
+    # relative_diff = Relative_L1_loss(model(IN), PROB, clamp_level)
+    relative_diff = Modified_L1_loss(model(IN), PROB, clamp_level, bar_level)
 
     plt.hist(relative_diff)
 
