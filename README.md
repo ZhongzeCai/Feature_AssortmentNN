@@ -1,4 +1,4 @@
-## Feature Assortment NN
+## Deep Learning for Choice Modeling
 
 manually add directory `logs` and `data`
 
